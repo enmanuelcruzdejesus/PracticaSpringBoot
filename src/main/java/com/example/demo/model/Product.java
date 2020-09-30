@@ -11,6 +11,11 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String descrip;
+    private Double unitprice;
+    private int stockunits;
+    private String img;
+    private String family;
+    private String subfamily;
 
     public int getId() {
         return id;
@@ -68,11 +73,7 @@ public class Product {
         this.subfamily = subfamily;
     }
 
-    private Double unitprice;
-    private int stockunits;
-    private String img;
-    private String family;
-    private String subfamily;
+
 
 
 
