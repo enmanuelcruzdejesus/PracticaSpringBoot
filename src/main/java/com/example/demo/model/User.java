@@ -9,6 +9,7 @@ import java.util.Set;
 @Entity
 public class User {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public int getId() {
@@ -51,12 +52,15 @@ public class User {
     private String password;
     private String role;
 
+    public User(){
 
+    }
 
+    public User(String userName, String password){
+        this.username = userName;
+        this.password = password;
 
-
-
-
+    }
 
 
 

@@ -33,4 +33,9 @@ public class InvoiceDetailsService {
     public void deleteInvoiceDetails(int id){
         this.repo.deleteById(id);
     }
+
+    public List<InvoiceDetails> getDetailByInvoice(int id) {
+
+        return repo.getDetailByInvoice(id);
+    }
 }

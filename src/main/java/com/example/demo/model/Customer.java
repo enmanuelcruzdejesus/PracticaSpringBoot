@@ -1,12 +1,18 @@
 package com.example.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 
 @Entity
-public class Customer {
+@Table(name = "Customer")
+public class Customer implements Serializable {
+
+    public Customer(){
+
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,13 +34,6 @@ public class Customer {
         this.name = name;
     }
 
-    public String getIdentetification() {
-        return identetification;
-    }
-
-    public void setIdentetification(String identetification) {
-        this.identetification = identetification;
-    }
 
     public String getImg() {
         return img;
@@ -44,8 +43,34 @@ public class Customer {
         this.img = img;
     }
 
+    public String getIdentification() {
+        return identification;
+    }
+
+    public void setIdentification(String identification) {
+        this.identification = identification;
+    }
+
+//    public List<Invoice> getInvoices() {
+//        return invoices;
+//    }
+//
+//    public void setInvoices(List<Invoice> invoices) {
+//        this.invoices = invoices;
+//    }
+
+
+
     private String name;
-    private String identetification;
+    private String identification;
     private String img;
+
+
+//
+//   @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY,
+//          cascade = CascadeType.ALL)
+//    private List<Invoice> invoices =new ArrayList<>();
+
+
 
 }

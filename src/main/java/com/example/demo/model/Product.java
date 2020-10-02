@@ -10,9 +10,13 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+
+
+
     private String descrip;
     private Double unitprice;
-    private int stockunits;
+    private int unitsinstock;
     private String img;
     private String family;
     private String subfamily;
@@ -41,12 +45,12 @@ public class Product {
         this.unitprice = unitprice;
     }
 
-    public int getStockunits() {
-        return stockunits;
+    public int getunitsinstock() {
+        return unitsinstock;
     }
 
-    public void setStockunits(int stockunits) {
-        this.stockunits = stockunits;
+    public void setunitsinstock(int unitsinstock) {
+        this.unitsinstock = unitsinstock;
     }
 
     public String getImg() {
@@ -72,6 +76,7 @@ public class Product {
     public void setSubfamily(String subfamily) {
         this.subfamily = subfamily;
     }
+
 
 
 

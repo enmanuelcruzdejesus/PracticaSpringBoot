@@ -17,8 +17,8 @@ public class ProductController {
     @Autowired
     private ProductService service;
 
-    @RequestMapping(path="/getAll",method = RequestMethod.GET)
-    public List<Product> fetchProductList(){
+    @RequestMapping(path="product/getAll",method = RequestMethod.GET)
+    public List<Product> getProducts(){
 
         List<Product> Products = new ArrayList<Product>();
 
@@ -28,12 +28,12 @@ public class ProductController {
     }
 
 
-    @GetMapping("/getProductById/{id}")
+    @GetMapping("product/getById/{id}")
     public Product getProductById(@PathVariable int id){
         return service.getProductById(id).get();
     }
 
-    @PostMapping("/saveProduct")
+    @PostMapping("product/save")
     public  Product addProduct (@RequestBody Product Product){
         return  service.saveProduct(Product);
     }

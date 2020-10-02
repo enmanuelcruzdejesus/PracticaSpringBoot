@@ -8,16 +8,19 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@RestController("users")
+@RestController()
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 
 public class UserController {
 
+
     @Autowired
     private UserService service;
 
-    @RequestMapping(path="/getAll",method = RequestMethod.GET)
-    public List<User> fetchProductList(){
+
+
+    @RequestMapping(path="user/getAll",method = RequestMethod.GET)
+    public List<User> getUsers(){
 
         List<User> Users = new ArrayList<User>();
 
@@ -26,14 +29,20 @@ public class UserController {
 
     }
 
-    @GetMapping("/getUserById/{id}")
+    @GetMapping("user/getById/{id}")
     public User getUserById(@PathVariable int id){
         return service.getUserById(id).get();
     }
 
-    @PostMapping("/saveUser")
-    public  User addUser (@RequestBody User User){
+    @RequestMapping(path="user/save",method = RequestMethod.POST)
+    public  User saveUser (@RequestBody User User){
         return  service.saveUser(User);
+    }
+
+    @RequestMapping(path="user/login",method = RequestMethod.POST)
+    public User login(@RequestBody User user){
+        User u = this.service.login(user.getUsername(),user.getPassword());
+        return u;
     }
 
 

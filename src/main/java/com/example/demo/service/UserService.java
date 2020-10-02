@@ -33,6 +33,11 @@ public class UserService {
     public void deleteUser(int id){
         this.repo.deleteById(id);
     }
+
+    public User login(String userName, String password){
+       User user =   this.repo.login(userName,password);
+       return user;
+    }
     
     
     
